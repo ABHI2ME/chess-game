@@ -341,6 +341,410 @@ function whitePawnMoves(row , col){
 
 }
 
+function whiteBishopMoves(row , col){
+    console.log("welcome to white bishop") ;
+    let count = 0 ;
+    let tempRow = parseInt(row) ;
+    let tempCol = parseInt(col) ;
+    movesPath = [] ;
+    myPreviousMove = [] ;
+
+    const start1 = [tempRow - 1, tempCol - 1]; 
+    const start2 = [tempRow - 1, tempCol + 1];     
+    const start3 = [tempRow + 1, tempCol - 1]; 
+    const start4 = [tempRow  + 1, tempCol + 1];
+
+    for (let i = start1[0], j = start1[1]; i >= 0 && j >= 0; i--, j--) {
+        if (i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != "") {
+            movesPath.push([i, j]);
+            break;
+        } else {
+            movesPath.push([i, j]);
+        }
+    }
+    
+    // Moving diagonally up-right (start2)
+    for (let i = start2[0], j = start2[1]; i >= 0 && j < 8; i--, j++) {
+        if (i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != "") {
+            movesPath.push([i, j]);
+            break;
+        } else {
+            movesPath.push([i, j]);
+        }
+    }
+    
+    // Moving diagonally down-left (start3)
+    for (let i = start3[0], j = start3[1]; i < 8 && j >= 0; i++, j--) {
+        if (i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != "") {
+            movesPath.push([i, j]);
+            break;
+        } else {
+            movesPath.push([i, j]);
+        }
+    }
+    
+    // Moving diagonally down-right (start4)
+    for (let i = start4[0], j = start4[1]; i < 8 && j < 8; i++, j++) {
+        if (i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != "") {
+            movesPath.push([i, j]);
+            break;
+        } else {
+            movesPath.push([i, j]);
+        }
+    }
+           readyForSecondMove = true ;
+           myPreviousMove.push(parseInt(row)) ;
+           myPreviousMove.push(parseInt(col)) ;
+
+           movesPath.forEach(item =>{
+               console.log(item) ;
+           })
+}
+
+function blackBishopMoves(row , col){
+    console.log("welcome to black bishop") ;
+    let count = 0 ;
+    let tempRow = parseInt(row) ;
+    let tempCol = parseInt(col) ;
+    movesPath = [] ;
+    myPreviousMove = [] ;
+
+    const start1 = [tempRow - 1, tempCol - 1]; 
+    const start2 = [tempRow - 1, tempCol + 1];     
+    const start3 = [tempRow + 1, tempCol - 1]; 
+    const start4 = [tempRow  + 1, tempCol + 1];
+    
+    for (let i = start1[0], j = start1[1]; i >= 0 && j >= 0; i--, j--) {
+        if (i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != "") {
+            movesPath.push([i, j]);
+            break;
+        } else {
+            movesPath.push([i, j]);
+        }
+    }
+    
+    // Moving diagonally up-right (start2)
+    for (let i = start2[0], j = start2[1]; i >= 0 && j < 8; i--, j++) {
+        if (i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != "") {
+            movesPath.push([i, j]);
+            break;
+        } else {
+            movesPath.push([i, j]);
+        }
+    }
+    
+    // Moving diagonally down-left (start3)
+    for (let i = start3[0], j = start3[1]; i < 8 && j >= 0; i++, j--) {
+        if (i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != "") {
+            movesPath.push([i, j]);
+            break;
+        } else {
+            movesPath.push([i, j]);
+        }
+    }
+    
+    // Moving diagonally down-right (start4)
+    for (let i = start4[0], j = start4[1]; i < 8 && j < 8; i++, j++) {
+        if (i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != "") {
+            movesPath.push([i, j]);
+            break;
+        } else {
+            movesPath.push([i, j]);
+        }
+    }
+           readyForSecondMove = true ;
+           myPreviousMove.push(parseInt(row)) ;
+           myPreviousMove.push(parseInt(col)) ;
+
+           movesPath.forEach(item =>{
+            console.log(item) ;
+        })
+
+}
+
+function whiteRookMoves(row , col){
+    console.log("the row and col " , row , col) ;
+    console.log("welcome to white rook") ;
+    let count = 0 ;
+    let tempRow = parseInt(row) ;
+    let tempCol = parseInt(col) ;
+    movesPath = [] ;
+    myPreviousMove = [] ;
+    
+    const start1 = [tempRow - 1, tempCol]; 
+    const start2 = [tempRow , tempCol - 1];     
+    const start3 = [tempRow + 1, tempCol]; 
+    const start4 = [tempRow , tempCol + 1];
+
+    for(let i = start1[0] , j = start1[1] ; i >= 0 ; i--){
+         if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+             movesPath.push([i , j]) ;
+             break ;
+         }
+         movesPath.push([i , j]) ;
+    }
+    
+    for(let i = start2[0] , j = start2[1] ;  j >= 0 ; j--){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+    
+    for(let i = start3[0] , j = start3[1] ; i < 8 ; i++){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+
+    for(let i = start4[0] , j = start4[1] ; j < 8 ; j++){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+
+           readyForSecondMove = true ;
+           myPreviousMove.push(parseInt(row)) ;
+           myPreviousMove.push(parseInt(col)) ;
+
+           movesPath.forEach(item =>{
+            console.log(item) ;
+        })
+
+}
+
+function blackRookMoves(row , col){
+        console.log("the row and col " , row , col) ;
+        console.log("welcome to white rook") ;
+        let count = 0 ;
+        let tempRow = parseInt(row) ;
+        let tempCol = parseInt(col) ;
+        movesPath = [] ;
+        myPreviousMove = [] ;
+        
+        const start1 = [tempRow - 1, tempCol]; 
+        const start2 = [tempRow , tempCol - 1];     
+        const start3 = [tempRow + 1, tempCol]; 
+        const start4 = [tempRow , tempCol + 1];
+        
+        for(let i = start1[0] , j = start1[1] ; i >= 0 ; i--){
+            if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+       }
+       
+       for(let i = start2[0] , j = start2[1] ;  j >= 0 ; j--){
+           if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+               movesPath.push([i , j]) ;
+               break ;
+           }
+           movesPath.push([i , j]) ;
+       }
+       
+       for(let i = start3[0] , j = start3[1] ; i < 8 ; i++){
+           if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+               movesPath.push([i , j]) ;
+               break ;
+           }
+           movesPath.push([i , j]) ;
+       }
+   
+       for(let i = start4[0] , j = start4[1] ; j < 8 ; j++){
+           if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+               movesPath.push([i , j]) ;
+               break ;
+           }
+           movesPath.push([i , j]) ;
+       }
+   
+             readyForSecondMove = true ;
+              myPreviousMove.push(parseInt(row)) ;
+              myPreviousMove.push(parseInt(col)) ;
+   
+              movesPath.forEach(item =>{
+               console.log(item) ;
+           })
+
+}
+
+function whiteQueenMoves(row , col){
+        console.log("the row and col " , row , col) ;
+        console.log("welcome to white queen") ;
+        let count = 0 ;
+        let tempRow = parseInt(row) ;
+        let tempCol = parseInt(col) ;
+        movesPath = [] ;
+        myPreviousMove = [] ;
+
+        const start1 = [tempRow - 1, tempCol-1]; 
+        const start2 = [tempRow - 1 , tempCol];     
+        const start3 = [tempRow - 1, tempCol + 1]; 
+        const start4 = [tempRow , tempCol - 1];
+        const start5 = [tempRow , tempCol + 1];
+        const start6 = [tempRow + 1 , tempCol - 1];
+        const start7 = [tempRow + 1 , tempCol ];
+        const start8 = [tempRow + 1 , tempCol + 1];
+
+        for(let i = start1[0] , j = start1[1] ; i >= 0 , j >= 0 ; i-- , j--){
+            if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+        }
+        for(let i = start2[0] , j = start2[1] ; i >= 0 ; i--){
+            if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+        }
+        for(let i = start3[0] , j = start3[1] ; i >= 0 , j < 8 ; i-- , j++){
+            if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+        }
+        for(let i = start4[0] , j = start4[1] ; j >= 0 ; j--){
+            if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+        }
+        for(let i = start5[0] , j = start5[1] ; j < 8 ; j++){
+            if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+        }
+        for(let i = start6[0] , j = start6[1] ; i < 8 , j >= 0 ; i++ , j--){
+            if( i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+        }
+        for(let i = start7[0] , j = start7[1] ; i < 8 ; i++){
+            if( i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+        }
+        for(let i = start8[0] , j = start8[1] ; i < 8 , j < 8 ; i++ , j++){
+            if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+                movesPath.push([i , j]) ;
+                break ;
+            }
+            movesPath.push([i , j]) ;
+        }
+
+        readyForSecondMove = true ;
+        myPreviousMove.push(parseInt(row)) ;
+        myPreviousMove.push(parseInt(col)) ;
+
+        movesPath.forEach(item =>{
+         console.log(item) ;
+     })
+
+}
+
+function blackQueenMoves(row , col){
+    console.log("the row and col " , row , col) ;
+    console.log("welcome to black queen") ;
+    let count = 0 ;
+    let tempRow = parseInt(row) ;
+    let tempCol = parseInt(col) ;
+    movesPath = [] ;
+    myPreviousMove = [] ;
+
+    const start1 = [tempRow - 1, tempCol-1]; 
+    const start2 = [tempRow - 1 , tempCol];     
+    const start3 = [tempRow - 1, tempCol + 1]; 
+    const start4 = [tempRow , tempCol - 1];
+    const start5 = [tempRow , tempCol + 1];
+    const start6 = [tempRow + 1 , tempCol - 1];
+    const start7 = [tempRow + 1 , tempCol ];
+    const start8 = [tempRow + 1 , tempCol + 1];
+
+    for(let i = start1[0] , j = start1[1] ; i >= 0 , j >= 0 ; i-- , j--){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+    for(let i = start2[0] , j = start2[1] ; i >= 0 ; i--){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+    for(let i = start3[0] , j = start3[1] ; i >= 0 , j < 8 ; i-- , j++){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+    for(let i = start4[0] , j = start4[1] ; j >= 0 ; j--){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+    for(let i = start5[0] , j = start5[1] ; j < 8 ; j++){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+    for(let i = start6[0] , j = start6[1] ; i < 8 , j >= 0 ; i++ , j--){
+        if( i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+    for(let i = start7[0] , j = start7[1] ; i < 8 ; i++){
+        if( i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+    for(let i = start8[0] , j = start8[1] ; i < 8 , j < 8 ; i++ , j++){
+        if(i >= 0 && i < 8 && j >= 0 && j < 8 && chessGrid[i][j] != ""){
+            movesPath.push([i , j]) ;
+            break ;
+        }
+        movesPath.push([i , j]) ;
+    }
+
+            readyForSecondMove = true ;
+            myPreviousMove.push(parseInt(row)) ;
+            myPreviousMove.push(parseInt(col)) ;
+
+            movesPath.forEach(item =>{
+            console.log(item) ;
+            }) ;
+}
+
+
+
 
 
 
