@@ -7,7 +7,7 @@ const blackPieces = {
     queen : "url(images/blackQueen.png)"
 } 
 const whitePieces = {
-    rook : "url(images/WhiteRook.png)" , 
+    rook : "url(images/whiteRook.png)" , 
     pawn : "url(images/whitePawn.png)" ,
     knight : "url(images/whiteKnight.png)" ,
     bishop : "url(images/whiteBishop.png)" ,
@@ -15,6 +15,9 @@ const whitePieces = {
     queen : "url(images/whiteQueen.png)"
 } 
 let playerToMove = "white" ;
+const audio = new Audio('sounds/moves.mp3');
+const captureAudio = new Audio('sounds/capturing.wav') ;
+
 
 const chessGrid = [] ;
 for(let i = 0 ; i < 8 ; i++){
@@ -72,6 +75,7 @@ let whiteMoveCount = 0 ;
 let blakMoveCount = 0 ;
 let moveCount = 0 ;
 let myPreviousMove = [] ;
+let lastClickedCell = null ;
 let readyForSecondMove = false ; // important
 
 
@@ -180,6 +184,14 @@ function makeMove(e){
              whiteMoveCount += 1 ;
              const str1 = `white${cellPlayerPiece}` ;
              console.log(str1) ;
+             //change the bg color to rgb(245, 245, 128)
+             if (lastClickedCell) {
+                lastClickedCell.style.backgroundColor = lastClickedCell.originalColor;
+             }
+             cell.originalColor = cell.style.backgroundColor ;
+             cell.style.backgroundColor = "rgb(245, 245, 128)";
+             lastClickedCell = cell;
+
              if (typeof window[str1] === "function") {
                 window[str1](row , col); // Call the function
             }
@@ -188,6 +200,13 @@ function makeMove(e){
             blakMoveCount += 1 ;
             const str2 = `black${cellPlayerPiece}` ;
             console.log(str2) ;
+            //change the bg color to rgb(245, 245, 128)
+            if (lastClickedCell) {
+                lastClickedCell.style.backgroundColor = lastClickedCell.originalColor;
+             }
+             cell.originalColor = cell.style.backgroundColor ;
+             cell.style.backgroundColor = "rgb(245, 245, 128)";
+             lastClickedCell = cell;
             if (typeof window[str2] === "function") {
                 window[str2](row , col); // Call the function
             }
@@ -206,6 +225,14 @@ function changeTheDom(row , col){
             const second = item [1] ;
             if(first == row && second == col){
 
+                //play sound 
+                if(chessGrid[row][col] != ""){
+                    captureAudio.play() ;
+                }
+                else{
+                    audio.play(); 
+                }
+
                 const selector1 = `${row}${col}` ;
                 const selector2 = `${myPreviousMove[0]}${myPreviousMove[1]}`
                 const toChangeCell = document.getElementById(selector1) ;
@@ -222,6 +249,8 @@ function changeTheDom(row , col){
                     playerToMove = "black" ;
                 }
                 console.log("player to move " , playerToMove) ;
+               
+                
             } 
             
         })
@@ -883,6 +912,9 @@ function blackKingMoves(row , col){
             console.log(item) ;
             }) ;
 }
+
+// rgb(245, 245, 128) when played 
+// when clicked rgb(245, 245, 128)
 
 
 
