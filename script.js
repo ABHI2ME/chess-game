@@ -743,6 +743,147 @@ function blackQueenMoves(row , col){
             }) ;
 }
 
+function whiteKnightMoves(row , col){
+    let count = 0 ;
+    let tempRow = parseInt(row) ;
+    let tempCol = parseInt(col) ;
+    movesPath = [] ;
+    myPreviousMove = [] ;
+
+    const start1 = [tempRow - 2, tempCol - 1]; 
+    const start2 = [tempRow - 1 , tempCol - 2];     
+    const start3 = [tempRow + 1, tempCol - 2]; 
+    const start4 = [tempRow + 2 , tempCol - 1];
+    const start5 = [tempRow + 2 , tempCol + 1];
+    const start6 = [tempRow + 1 , tempCol + 2];
+    const start7 = [tempRow - 1 , tempCol + 2 ];
+    const start8 = [tempRow - 2 , tempCol + 1];
+
+    movesPath.push(start1) ;
+    movesPath.push(start2) ;
+    movesPath.push(start3) ;
+    movesPath.push(start4) ;
+    movesPath.push(start5) ;
+    movesPath.push(start6) ;
+    movesPath.push(start7) ;
+    movesPath.push(start8) ;
+
+    readyForSecondMove = true ;
+            myPreviousMove.push(parseInt(row)) ;
+            myPreviousMove.push(parseInt(col)) ;
+
+            movesPath.forEach(item =>{
+            console.log(item) ;
+            }) ;
+    
+    
+} 
+
+function blackKnightMoves(row , col){
+    let count = 0 ;
+    let tempRow = parseInt(row) ;
+    let tempCol = parseInt(col) ;
+    movesPath = [] ;
+    myPreviousMove = [] ;
+
+    const start1 = [tempRow - 2, tempCol - 1]; 
+    const start2 = [tempRow - 1 , tempCol - 2];     
+    const start3 = [tempRow + 1, tempCol - 2]; 
+    const start4 = [tempRow + 2 , tempCol - 1];
+    const start5 = [tempRow + 2 , tempCol + 1];
+    const start6 = [tempRow + 1 , tempCol + 2];
+    const start7 = [tempRow - 1 , tempCol + 2 ];
+    const start8 = [tempRow - 2 , tempCol + 1];
+
+    movesPath.push(start1) ;
+    movesPath.push(start2) ;
+    movesPath.push(start3) ;
+    movesPath.push(start4) ;
+    movesPath.push(start5) ;
+    movesPath.push(start6) ;
+    movesPath.push(start7) ;
+    movesPath.push(start8) ;
+
+    readyForSecondMove = true ;
+            myPreviousMove.push(parseInt(row)) ;
+            myPreviousMove.push(parseInt(col)) ;
+
+            movesPath.forEach(item =>{
+            console.log(item) ;
+            }) ;
+}
+
+function whiteKingMoves(row , col){
+    let count = 0 ;
+    let tempRow = parseInt(row) ;
+    let tempCol = parseInt(col) ;
+    movesPath = [] ;
+    myPreviousMove = [] ;
+
+    const start1 = [tempRow - 1, tempCol - 1]; 
+    const start2 = [tempRow  , tempCol - 1];     
+    const start3 = [tempRow + 1, tempCol - 1]; 
+    const start4 = [tempRow + 1 , tempCol ];
+    const start5 = [tempRow + 1 , tempCol + 1];
+    const start6 = [tempRow  , tempCol + 1];
+    const start7 = [tempRow - 1 , tempCol + 1 ];
+    const start8 = [tempRow - 1 , tempCol ];
+    
+    movesPath.push(start1) ;
+    movesPath.push(start2) ;
+    movesPath.push(start3) ;
+    movesPath.push(start4) ;
+    movesPath.push(start5) ;
+    movesPath.push(start6) ;
+    movesPath.push(start7) ;
+    movesPath.push(start8) ;
+
+    readyForSecondMove = true ;
+            myPreviousMove.push(parseInt(row)) ;
+            myPreviousMove.push(parseInt(col)) ;
+
+            movesPath.forEach(item =>{
+            console.log(item) ;
+            }) ;
+
+
+
+}
+
+function blackKingMoves(row , col){
+    let count = 0 ;
+    let tempRow = parseInt(row) ;
+    let tempCol = parseInt(col) ;
+    movesPath = [] ;
+    myPreviousMove = [] ;
+
+    const start1 = [tempRow - 1, tempCol - 1]; 
+    const start2 = [tempRow  , tempCol - 1];     
+    const start3 = [tempRow + 1, tempCol - 1]; 
+    const start4 = [tempRow + 1 , tempCol ];
+    const start5 = [tempRow + 1 , tempCol + 1];
+    const start6 = [tempRow  , tempCol + 1];
+    const start7 = [tempRow - 1 , tempCol + 1 ];
+    const start8 = [tempRow - 1 , tempCol ];
+    
+    movesPath.push(start1) ;
+    movesPath.push(start2) ;
+    movesPath.push(start3) ;
+    movesPath.push(start4) ;
+    movesPath.push(start5) ;
+    movesPath.push(start6) ;
+    movesPath.push(start7) ;
+    movesPath.push(start8) ;
+
+    readyForSecondMove = true ;
+            myPreviousMove.push(parseInt(row)) ;
+            myPreviousMove.push(parseInt(col)) ;
+
+            movesPath.forEach(item =>{
+            console.log(item) ;
+            }) ;
+}
+
 
 
 
